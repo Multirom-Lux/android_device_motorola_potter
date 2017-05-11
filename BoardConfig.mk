@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/motorola/potter
+LOCAL_PATH := device/motorola/potter
 
 #TARGET_RECOVERY_DEVICE_DIRS := $(DEVICE_PATH)
 
@@ -41,7 +41,7 @@ BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 an
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_SEPARATED_DT := true
-
+TARGET_KERNEL_CROSS_COMPILE_PREFIX := $(PWD)/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8/bin/arm-eabi-
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
 
 TARGET_CUSTOM_DTBTOOL := dtbTool_moto
@@ -50,7 +50,7 @@ TARGET_KERNEL_ARCH := arm
 TARGET_KERNEL_CONFIG := potter_defconfig
 TARGET_KERNEL_SOURCE := kernel/motorola/msm8953
 
-BOARD_USES_QCOM_HARDWARE := true
+#BOARD_USES_QCOM_HARDWARE := true
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072
@@ -64,10 +64,10 @@ BOARD_SUPPRESS_SECURE_ERASE := true
 #COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
 
 # Crypto
-TARGET_HW_DISK_ENCRYPTION := true
-TW_INCLUDE_CRYPTO := true
-TARGET_KEYMASTER_WAIT_FOR_QSEE := true
-TARGET_CRYPTFS_HW_PATH := vendor/qcom/opensource/cryptfs_hw
+#TARGET_HW_DISK_ENCRYPTION := true
+#TW_INCLUDE_CRYPTO := true
+#TARGET_KEYMASTER_WAIT_FOR_QSEE := true
+#TARGET_CRYPTFS_HW_PATH := vendor/qcom/opensource/cryptfs_hw/
 
 # TWRP
 RECOVERY_VARIANT := twrp
@@ -81,3 +81,18 @@ TARGET_USERIMAGES_USE_F2FS := true
 TW_NEW_ION_HEAP := true
 TW_THEME := portrait_hdpi
 TW_SCREEN_BLANK_ON_BOOT := true
+
+#MultiROM config. MultiROM also uses parts of TWRP config
+MR_INPUT_TYPE := type_b
+MR_INIT_DEVICES := $(LOCAL_PATH)/multirom/mr_init_devices.c
+MR_DPI := xhdpi
+MR_DPI_FONT := 340
+MR_FSTAB := $(LOCAL_PATH)/multirom/mrom.fstab
+MR_KEXEC_MEM_MIN := 0x82000000
+MR_KEXEC_DTB := true
+MR_USE_MROM_FSTAB := true
+MR_CONTINUOUS_FB_UPDATE := true
+MR_NO_KEXEC := enabled
+TARGET_RECOVERY_IS_MULTIROM := true
+
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
