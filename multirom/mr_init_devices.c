@@ -29,7 +29,7 @@ const char *mr_init_devices[] =
     "/sys/devices/soc.0/gpio_keys.70/input*",
     "/sys/devices/virtual/input*",
     "/sys/devices/virtual/misc/uinput",
-    "/sys/devices/soc/78b8000.i2c/i2c-3/3-0020/input*",
+    "/sys/devices/soc/78b7000.i2c/i2c-3/3-0020/input*",
 
     // for adb
     "/sys/devices/virtual/tty/ptmx",
