@@ -69,7 +69,7 @@ BOARD_SUPPRESS_SECURE_ERASE := true
 #TARGET_CRYPTFS_HW_PATH := vendor/qcom/opensource/cryptfs_hw/
 
 # TWRP
-RECOVERY_VARIANT := twrp
+#RECOVERY_VARIANT := twrp
 
 TARGET_RECOVERY_FSTAB := device/motorola/potter/twrp.fstab
 RECOVERY_SDCARD_ON_DATA := true
@@ -80,6 +80,7 @@ TARGET_USERIMAGES_USE_F2FS := true
 TW_NEW_ION_HEAP := true
 TW_THEME := portrait_hdpi
 TW_SCREEN_BLANK_ON_BOOT := true
+TW_USE_TOOLBOX := true
 
 #MultiROM config. MultiROM also uses parts of TWRP config
 MR_INPUT_TYPE := type_b
