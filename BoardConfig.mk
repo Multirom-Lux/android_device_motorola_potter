@@ -100,3 +100,9 @@ MR_NO_KEXEC := enabled
 TARGET_RECOVERY_IS_MULTIROM := true
 
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
+
+# Versioning
+MR_DEVICE_SPECIFIC_VERSION := e
+include $(LOCAL_PATH)/multirom/MR_REC_VERSION.mk
+BOARD_MKBOOTIMG_ARGS += --board mrom$(MR_REC_VERSION)
+MR_REC_VERSION := $(shell date -u +%Y%m%d)-01
