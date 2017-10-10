@@ -16,8 +16,7 @@
 
 LOCAL_PATH := device/motorola/potter
 
-#TARGET_RECOVERY_DEVICE_DIRS := $(DEVICE_PATH)
-
+# Architecture
 TARGET_ARCH := arm
 TARGET_CPU_ABI  := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
@@ -34,9 +33,7 @@ TARGET_BOARD_PLATFORM := msm8953
 TARGET_BOOTLOADER_BOARD_NAME := MSM8953
 TARGET_NO_BOOTLOADER := true
 
-#TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/boot.img-zImage
-#TARGET_PREBUILT_DTB := $(DEVICE_PATH)/boot.img-dt
-
+# Kernel
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=30 msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 vmalloc=350M androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 2048
@@ -49,8 +46,6 @@ TARGET_KERNEL_CROSS_COMPILE_PREFIX := $(PWD)/prebuilts/gcc/linux-x86/arm/arm-eab
 TARGET_KERNEL_CONFIG := potter_defconfig
 TARGET_KERNEL_SOURCE := kernel/motorola/msm8953
 
-#BOARD_USES_QCOM_HARDWARE := true
-
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216        #    16384 * 1024 mmcblk0p37
@@ -60,17 +55,8 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 25614597120 # 25014255 * 1024 mmcblk0p54
 
 # don't take forever to wipe
 BOARD_SUPPRESS_SECURE_ERASE := true
-#COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
-
-# Crypto
-#TARGET_HW_DISK_ENCRYPTION := true
-#TW_INCLUDE_CRYPTO := true
-#TARGET_KEYMASTER_WAIT_FOR_QSEE := true
-#TARGET_CRYPTFS_HW_PATH := vendor/qcom/opensource/cryptfs_hw/
 
 # TWRP
-#RECOVERY_VARIANT := twrp
-
 TARGET_RECOVERY_FSTAB := device/motorola/potter/twrp.fstab
 RECOVERY_SDCARD_ON_DATA := true
 TARGET_RECOVERY_PIXEL_FORMAT := RGB_565
@@ -80,9 +66,8 @@ TARGET_USERIMAGES_USE_F2FS := true
 TW_NEW_ION_HEAP := true
 TW_THEME := portrait_hdpi
 TW_SCREEN_BLANK_ON_BOOT := true
-TW_USE_TOOLBOX := true
 
-#MultiROM config. MultiROM also uses parts of TWRP config
+# MultiROM config. MultiROM also uses parts of TWRP config
 MR_INPUT_TYPE := type_b
 MR_DEV_BLOCK_BOOTDEVICE := true
 MR_INIT_DEVICES := $(LOCAL_PATH)/multirom/mr_init_devices.c
@@ -99,10 +84,10 @@ MR_CONTINUOUS_FB_UPDATE := true
 MR_NO_KEXEC := enabled
 TARGET_RECOVERY_IS_MULTIROM := true
 
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
-
 # Versioning
 MR_DEVICE_SPECIFIC_VERSION := e
 include $(LOCAL_PATH)/multirom/MR_REC_VERSION.mk
 BOARD_MKBOOTIMG_ARGS += --board mrom$(MR_REC_VERSION)
 MR_REC_VERSION := $(shell date -u +%Y%m%d)-01
+
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
