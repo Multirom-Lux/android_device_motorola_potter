@@ -19,7 +19,18 @@
 $(call inherit-product, device/motorola/potter/full_potter.mk)
 
 # Inherit some common Tipsy stuff.
-#$(call inherit-product, vendor/tipsy/config/common_full_phone.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+
+# Inherit language packages
+$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
+
+# Charger
+PRODUCT_PACKAGES += \
+    charger_res_images
+
+# Time Zone data for recovery
+PRODUCT_COPY_FILES += \
+    bionic/libc/zoneinfo/tzdata:recovery/root/system/usr/share/zoneinfo/tzdata
 
 # Disable Slim Framework
 DISABLE_SLIM_FRAMEWORK := true
