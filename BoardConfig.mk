@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #
 # Copyright (C) 2015-2016 The Android Open-Source Project
 #
@@ -80,6 +81,7 @@ TARGET_USERIMAGES_USE_F2FS := true
 TW_NEW_ION_HEAP := true
 TW_THEME := portrait_hdpi
 TW_SCREEN_BLANK_ON_BOOT := true
+TW_INCLUDE_NTFS_3G := true
 
 # MultiROM config. MultiROM also uses parts of TWRP config
 MR_INPUT_TYPE := type_b
