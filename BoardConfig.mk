@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #
 # Copyright (C) 2015-2016 The Android Open-Source Project
 #
@@ -41,6 +40,8 @@ TARGET_BOARD_PLATFORM := msm8953
 
 TARGET_BOOTLOADER_BOARD_NAME := MSM8953
 TARGET_NO_BOOTLOADER := true
+
+BOARD_USES_QCOM_HARDWARE := true
 
 # Encryption
 TARGET_HW_DISK_ENCRYPTION := true
