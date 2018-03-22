@@ -42,6 +42,10 @@ TARGET_BOARD_PLATFORM := msm8953
 TARGET_BOOTLOADER_BOARD_NAME := MSM8953
 TARGET_NO_BOOTLOADER := true
 
+# Encryption
+TARGET_HW_DISK_ENCRYPTION := true
+TW_INCLUDE_CRYPTO := true
+
 # Kernel
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=30 msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 vmalloc=350M androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x80000000
